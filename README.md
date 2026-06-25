@@ -1,15 +1,20 @@
 # Personal Portfolio
 
-A sleek, responsive personal portfolio website showcasing my engineering projects, skills, and professional journey. Built using a component-driven architecture with React and modern styling frameworks.
+A sleek, responsive personal portfolio website showcasing engineering projects, skills, and professional journey.
 
-## 🚀 Tech Stack
+## Tech Stack
 
-- **Frontend Framework:** React.js (Vite)
-- **Styling:** Tailwind CSS
-- **Tooling:** JavaScript (ES Modules), Git
+- React with Vite
+- Tailwind CSS
+- Modern JavaScript modules
 
-## 📂 Key Features
+## Project Structure
 
-- **Project Catalog:** A modular, grid-based display highlighting full-stack and frontend development projects.
-- **Responsive Layout:** Optimized across mobile, tablet, and desktop viewports using semantic HTML and custom Tailwind breakpoints.
-- **Clean Architecture:** Separated into distinct modular folders for reusable components and views.
+- `src/components` for reusable UI components
+- `src/pages` for page-level views
+
+## Scripts
+
+- `npm run dev` starts the local development server.
+- `npm run build` creates a production build.
+- `npm run preview` serves the production build locally.
