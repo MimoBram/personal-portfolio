@@ -1,0 +1,3 @@
+- Stack: React (Vite) + Tailwind CSS
+- Folder: Komponen di `/src/components`, halaman di `/src/pages`
+- Code Style: Pakai Modern JavaScript (import/export)
