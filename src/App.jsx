@@ -5,7 +5,7 @@ import Projects from './components/Projects'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0b0f19] font-sans text-slate-200 antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+    <div className="min-h-screen bg-[#0c0c0e] font-sans text-zinc-200 antialiased selection:bg-orange-500/20 selection:text-orange-300">
       <Navbar />
       <main>
         <Hero />

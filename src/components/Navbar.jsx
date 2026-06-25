@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { profileData } from '../data/portfolioData'
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -7,40 +8,58 @@ const navItems = [
   { label: 'Certificates', href: '#certificates' },
 ]
 
+function ArrowBadge() {
+  return (
+    <span className="ml-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-orange-600 text-zinc-50 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:bg-zinc-50 group-hover:text-orange-600">
+      →
+    </span>
+  )
+}
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const closeMenu = () => setIsOpen(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-800/40 bg-[#0b0f19]/70 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Primary navigation">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
+      <nav
+        className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-zinc-800/60 bg-[#0c0c0e]/80 px-4 py-3 shadow-2xl shadow-black/30 backdrop-blur-md"
+        aria-label="Primary navigation"
+      >
         <a
           href="#home"
-          className="group inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-slate-50 transition-all duration-300 ease-out hover:tracking-wider"
+          className="rounded-full px-3 text-sm font-extrabold tracking-tight text-zinc-50 transition-all duration-300 ease-out hover:text-orange-500"
           onClick={closeMenu}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-500/10 text-xs text-emerald-300 transition-all duration-300 ease-out group-hover:border-emerald-300 group-hover:bg-emerald-500/20">
-            BA
-          </span>
-          Bimo Adi
+          Bimo<span className="text-orange-500">.</span>
         </a>
 
-        <div className="hidden rounded-full border border-slate-800/60 bg-[#131b2e]/60 p-1 shadow-2xl shadow-black/20 md:flex">
+        <div className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-4 py-2 text-sm font-medium tracking-wide text-slate-400 transition-all duration-300 ease-out hover:bg-slate-800/70 hover:text-slate-50"
+              className="rounded-full px-4 py-2 text-xs font-semibold tracking-wide text-zinc-400 transition-all duration-300 ease-out hover:bg-zinc-900 hover:text-zinc-50"
             >
               {item.label}
             </a>
           ))}
         </div>
 
+        <div className="hidden md:block">
+          <a
+            href={`mailto:${profileData.email}`}
+            className="group inline-flex items-center rounded-full bg-zinc-50 py-1.5 pl-5 pr-1.5 text-xs font-extrabold tracking-tight text-[#0c0c0e] transition-all duration-300 ease-out hover:bg-orange-600 hover:text-zinc-50"
+          >
+            Get in touch
+            <ArrowBadge />
+          </a>
+        </div>
+
         <button
           type="button"
-          className="relative z-50 flex h-10 w-10 items-center justify-center rounded-full border border-slate-700/70 bg-[#131b2e]/80 text-slate-100 transition-all duration-300 ease-out hover:border-slate-600 hover:bg-slate-800 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950 text-zinc-50 transition-all duration-300 ease-out hover:border-orange-500 md:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
@@ -54,22 +73,30 @@ function Navbar() {
       </nav>
 
       <div
-        className={`fixed inset-x-4 top-20 z-40 origin-top rounded-3xl border border-slate-800/60 bg-[#131b2e]/95 p-3 shadow-2xl shadow-black/30 backdrop-blur-md transition-all duration-300 ease-out md:hidden ${
+        className={`mx-auto mt-3 max-w-6xl overflow-hidden rounded-[2rem] border border-zinc-800/60 bg-[#111113]/95 p-3 shadow-2xl shadow-black/40 backdrop-blur-md transition-all duration-300 ease-out md:hidden ${
           isOpen
-            ? 'translate-y-0 scale-100 opacity-100'
-            : 'pointer-events-none -translate-y-4 scale-95 opacity-0'
+            ? 'translate-y-0 opacity-100'
+            : 'pointer-events-none -translate-y-3 opacity-0'
         }`}
       >
         {navItems.map((item) => (
           <a
             key={item.href}
             href={item.href}
-            className="block rounded-2xl px-4 py-3 text-sm font-medium tracking-wide text-slate-300 transition-all duration-300 ease-out hover:bg-slate-800/70 hover:text-slate-50"
+            className="block rounded-2xl px-4 py-3 text-sm font-semibold tracking-wide text-zinc-300 transition-all duration-300 ease-out hover:bg-zinc-900 hover:text-zinc-50"
             onClick={closeMenu}
           >
             {item.label}
           </a>
         ))}
+        <a
+          href={`mailto:${profileData.email}`}
+          className="group mt-2 inline-flex w-full items-center justify-center rounded-full bg-orange-600 py-2 pl-5 pr-2 text-sm font-extrabold tracking-tight text-zinc-50 transition-all duration-300 ease-out hover:bg-zinc-50 hover:text-[#0c0c0e]"
+          onClick={closeMenu}
+        >
+          Get in touch
+          <ArrowBadge />
+        </a>
       </div>
     </header>
   )
